@@ -17,7 +17,7 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
-    print('Hello! Let\'s explore some US bikeshare data!')
+    print('Hello! Let\'s explore some US bikeshare data!\n')
 
     """
     Brief, simple inner function to show error message.
@@ -28,20 +28,22 @@ def get_filters():
 
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
-        city = input("\nWould you like to see data for Chicago, New York, or Washington ?\n").lower()
-        if city in ['chicago', 'new york', 'washington']:
+        city = input(
+            'Would you like to see data for Chicago, New York City, or Washington? \n').lower()
+        if city == 'chicago':
+            print('\nlooks like you want to see data for Chicago!\n')
+            break
+
+        elif city == 'new york city':
+            print('\nlooks like you want to see data for New York City!\n')
+            break
+
+        elif city == 'washington':
+            print('\nlooks like you want to see data for Washington!\n')
             break
         else:
             handle_invalid_user_input()
-
-    # get user input for month (all, january, february, ... , june)
-    while True:
-        month = input("\nWhich month ? January, February, March, April, May, or June ?\n").lower()
-        if month in ["january", "february", "march", "april", "may", "june", "all"]:
-            break
-        else:
-            handle_invalid_user_input()
-
+continue
     # get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
         day = input("\nWhich day ? Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday ?\n").lower()
@@ -197,7 +199,7 @@ def user_stats(df):
         most_common_birth_year = df['Birth Year'].mode()[0]
         print("\nEarliest year of birth: " + str(earliest_year))
         print("\nMost recent year of birth: " + str(most_recent_year))
-        print("\nMost common year of birth: " + str(most_common_birth_year))
+        print("\nMost Common Birth Year is:" + str(most_common_birth_year))
         df['Birth Year'].hist()
         plt.show()
     print("\nThis took %s seconds." % (time.time() - start_time))
