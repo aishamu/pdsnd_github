@@ -22,6 +22,7 @@ def get_filters():
     """
     Brief, simple inner function to show error message.
     """
+    
     def handle_invalid_user_input():
         print ("Your input is invalid. Please try again.")
 
